@@ -38,6 +38,8 @@ public class LoginUserView extends AppCompatActivity implements Login_Contract.v
             public void onClick(View v) {
                 User user = new User(1, username.getText().toString(), password.getText().toString());
                 presenter.loginAction(user);
+                System.out.println(user.getUsername());
+                System.out.println(user.getPassword());
             }
         });
     }

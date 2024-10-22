@@ -1,5 +1,7 @@
 package com.example.faure_mvp.login_users.model;
 
+import android.util.Log;
+
 import com.example.faure_mvp.beans.User;
 import com.example.faure_mvp.login_users.Login_Contract;
 import com.example.faure_mvp.login_users.data.LoginUserData;
@@ -11,12 +13,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginUserModel implements Login_Contract.model {
-    private static final String base_url = "http://172.20.192.1:3000/login?username=prueba01&password=1234";
+    private static final String base_url = "http://192.168.104.77:3000/";
 
     @Override
     public void loginUserAPI(User user, OnLoginUserListener onLoginUserListener) {
         ApiService apiService = RetrofitClient.getClient(base_url).create(ApiService.class);
-
+        Log.e("Email+password", user.getUsername()+ "" +user.getPassword());
         User userL = new User();
         userL.setUsername(user.getUsername());
         userL.setPassword(user.getPassword());
